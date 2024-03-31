@@ -1,26 +1,26 @@
 <?php
-include 'common.php';
-session_start();
-if (isset($_POST['Submit'])) {
+	include 'common.php'; //include functions
+	session_start(); //start session to get session vars
+	if (isset($_POST['Submit'])) { //check if submit ented
 		$letter = $_POST['letter']; //store submission in variable
-		if (!str_contains($_SESSION['letters'],$letter)) {
-			$_SESSION['letters'] .= $letter;
-			$_SESSION['warning'] = '';
-			if (!in_array($letter, $_SESSION['word_id'])) {
-			$_SESSION['attempts'] -=1;
-			} else {
-				$i=0;
-				foreach ($_SESSION['word_id'] as $space) {
-					if ($space == $letter) {
-						$_SESSION['blank'][$i] = $letter;
+		if (!str_contains($_SESSION['letters'],$letter)) { //if the new letter isn't in the letters variable i.e. not entered before
+			$_SESSION['letters'] .= $letter; //add the letter to the list of letters
+			$_SESSION['warning'] = '';//no warning 
+			if (!in_array($letter, $_SESSION['word_id'])) { //if the letter is not in the chosen word
+			$_SESSION['attempts'] -=1; //remove chance
+			} else { //else (letter is in word)
+				$i=0; //index variable starting from 0 (start of array)
+				foreach ($_SESSION['word_id'] as $space) { //for each char in the word
+					if ($space == $letter) { //if the char matches the letter
+						$_SESSION['blank'][$i] = $letter; //replace the equivalent blank space with the letter
 					}
-				$i++;	
+				$i++; //increment index	
 				}
 			}
-		} else if($letter!='') {
-			$_SESSION['warning'] = 'You already submitted \'' . $letter . '\''; 
+		} else if($letter!='') { //else (letter already entered) if not blank
+			$_SESSION['warning'] = 'You already submitted \'' . $letter . '\''; //create warning
 		}
-		header("location:formurltest.php"); //redirect to getting matched with query parameter from submit
+		header("location:formurltest.php"); //redirect to same page with updated variables
 		exit;
     }
 ?>
