@@ -1,0 +1,50 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+/* Container styles */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+
+/* Header styles */
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Profile information styles */
+.profile-info {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* Form styles */
+form {
+    margin-bottom: 20px;
+}
+
+/* Scoreboard styles */
+.scoreboard {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #f5f5f5;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+}
+
+/* Word info styles */
+.word-info {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+}
