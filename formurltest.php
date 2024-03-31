@@ -31,7 +31,7 @@
 	Test word = <?=$_SESSION['test'] ?>, attempts only decrease if letter isnt in test word <br>
 	<form action="" method="post">
 	<?php
-		if (($_SESSION['attempts'] !=0)&&(in_array('_', $_SESSION['blank']))) {
+		if (($_SESSION['attempts'] !=0)&&(in_array('_', $_SESSION['blank']))) { //create submit button if the game is ongoing i.e. user hasn't lost (attempts not 0) or is finished (no blanks left, word filled)
 			print 'Enter a Letter:<input name="letter" type=text" maxlength="1">
 			<input name="Submit" type="submit" value="Submit">';
 		}
@@ -43,7 +43,7 @@
 	Letters: <?= $_SESSION['letters'] ?> <?= $_SESSION['warning'] ?><br>
 	Attempts: <?= $_SESSION['attempts'] ?><br>
 	<?php
-		if (!in_array('_', $_SESSION['blank'])) {
+		if (!in_array('_', $_SESSION['blank'])) { //link to next round if word is done
 			print '<a href="./next.php">Next</a>';
 		}
 	?>
