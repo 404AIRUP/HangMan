@@ -18,19 +18,18 @@
     </form>
 
     <?php
-    // this is the variable scoreFIle to store scores.
-    $scoreFile = 'scores.txt';
-
+    // this stores on local server in .txt note
+   // instead of: $scoreFile = 'scores.txt';
+	session_start(); // Start session: this stores on server side session
     // Check if form is submitted
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
 	// Check if reset button is clicked
         if (isset($_POST["reset"])) {
 			
-    // Clear scoreboard by deleting the score file
-            if (file_exists($scoreFile)) {
-                unlink($scoreFile);
-            }
+    // Clear scoreboard by resetting session data
+        unset($_SESSION["scores"]);
+		
         } else {
     // Get username and score from form
             $username = $_POST["username"];
@@ -38,11 +37,9 @@
             
     // Validate input
             if (!empty($username) && $score > 0) {
-    // Load scores from file
-                $scores = [];
-                if (file_exists($scoreFile)) {
-                    $scores = unserialize(file_get_contents($scoreFile));
-                }
+				
+      // Load scores from session instead of .txt file
+            $scores = isset($_SESSION["scores"]) ? $_SESSION["scores"] : [];
                 
     // Update scores with new entry
                 $scores[$username] = $score;
@@ -51,26 +48,26 @@
                 arsort($scores);
                 
     // SAVE SCORES: THIS USES: file_put_contents
-                file_put_contents($scoreFile, serialize($scores));
-            } else {
-                echo "<p>Please enter a valid username and score.</p>";
-            }
+                    // Save scores to session
+            $_SESSION["scores"] = $scores;
+        } else {
+            echo "<p>Please enter a valid username and score.</p>";
         }
     }
+}
+
 
 // DISPLAY SCORES: THIS USES: file_get_contents
-    echo "<h3>Scoreboard:</h3>";
-    if (file_exists($scoreFile)) {
-        $scores = unserialize(file_get_contents($scoreFile));
-        echo "<ol>";
-        foreach ($scores as $username => $score) {
-            echo "<li>$username: $score</li>";
-        }
-        echo "</ol>";
-    } else {
-//no entries w an else statement
-        echo "<p>No scores yet.</p>";
+  echo "<h3>Scoreboard:</h3>";
+if (isset($_SESSION["scores"]) && !empty($_SESSION["scores"])) {
+    echo "<ol>";
+    foreach ($_SESSION["scores"] as $username => $score) {
+        echo "<li>$username: $score</li>";
     }
+    echo "</ol>";
+} else {
+    echo "<p>No scores yet.</p>";
+}
     ?>
 </body>
 </html>
