@@ -46,28 +46,34 @@
 	<head>
 	</head>
 	<body>
-	Test word = <?= $_SESSION['test'] ?>, attempts only decrease if letter isn't in test word <br>
-	<form action="" method="post">
-		<?php
-			if (($_SESSION['attempts'] !=0) && (in_array('_', $_SESSION['blank']))) { //create submit button if the game is ongoing i.e. user hasn't lost (attempts not 0) or is finished (no blanks left, word filled)
-				$imageFile = getImageFile($_SESSION['attempts']); // Get the image file based on attempts
-				print "<img src='$imageFile' alt='Attempt Image'>"; // Print the image
-				print 'Enter a Letter:<input name="letter" type="text" maxlength="1">
-				<input name="Submit" type="submit" value="Submit">';
-			}
-		?>
-		Score: <?= $_SESSION['score'] ?><br>
-		Difficulty: <?= $_SESSION['difficulty'] ?><br>
-		Word ID: <?= printArray($_SESSION['word_id']); ?><br>
-		Spaces: <?= printArray($_SESSION['blank']); ?><br>
-		Letters: <?= $_SESSION['letters'] ?> <?= $_SESSION['warning'] ?><br>
-		Attempts: <?= $_SESSION['attempts'] ?><br>
-		<?php
-			if (!in_array('_', $_SESSION['blank'])) { //link to next round if word is done
-				print '<a href="./next.php">Next</a>';
-			}
-		?>
-		<a href="./reset.php">Reset</a>
-	</form>
+		Test word = <?= $_SESSION['test'] ?>, attempts only decrease if letter isn't in test word <br>
+		<form action="" method="post">
+			<div class="hangman">
+				<?php
+					if (($_SESSION['attempts'] !=0) && (in_array('_', $_SESSION['blank']))) { // Display the image if attempts remaining and word is not yet complete
+						$imageFile = getImageFile($_SESSION['attempts']); // Get the image file based on attempts
+						print "<img src='$imageFile' alt='Attempt Image'>"; // Print the image
+					}
+				?>
+			</div>
+			<?php
+				if (($_SESSION['attempts'] !=0) && (in_array('_', $_SESSION['blank']))) { // Display input field if attempts remaining and word is not yet complete
+					print 'Enter a Letter:<input name="letter" type="text" maxlength="1">
+					<input name="Submit" type="submit" value="Submit">';
+				}
+			?>
+			Score: <?= $_SESSION['score'] ?><br>
+			Difficulty: <?= $_SESSION['difficulty'] ?><br>
+			Word ID: <?= printArray($_SESSION['word_id']); ?><br>
+			Spaces: <?= printArray($_SESSION['blank']); ?><br>
+			Letters: <?= $_SESSION['letters'] ?> <?= $_SESSION['warning'] ?><br>
+			Attempts: <?= $_SESSION['attempts'] ?><br>
+			<?php
+				if (!in_array('_', $_SESSION['blank'])) { //link to next round if word is done
+					print '<a href="./next.php">Next</a>';
+				}
+			?>
+			<a href="./reset.php">Reset</a>
+		</form>
 	</body>
 </html>
