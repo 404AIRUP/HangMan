@@ -1,5 +1,8 @@
-<?php session_start(); /* Starts the session */
-  session_destroy(); //destroy session i.e. reset all session variables
-  header("location:start.php"); /*return to start page*/
-  exit;
+<?php
+// Clear the contents of the score.html file
+file_put_contents("score.html", "");
+
+// Redirect back to the scoreboard page
+header("Location: scoreboard.html");
+exit; // Ensure script execution stops after redirection
 ?>

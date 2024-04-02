@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Scoreboard</title>
+</head>
+<body>
+    <h1>Scoreboard</h1>
+	<p> Guess a Fruit! <p>
+    <form action="score.php" method="POST">
+        <label for="user">USER:</label>
+        <input type="text" id="user" name="user"><br><br>
+
+        <label for="word">WORD:</label>
+        <input type="text" id="word" name="word"><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+	<!-- Add reset button -->
+    <form action="reset.php" method="POST">
+        <input type="submit" value="Reset Scoreboard">
+    </form>
+    <!-- End of reset button -->
+</body>
+</html>
