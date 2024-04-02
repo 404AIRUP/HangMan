@@ -4,18 +4,20 @@
 
 	// Array of image filenames
 	$imageFiles = array(
-		"image0.jpg", // Replace with actual filenames
-		"image1.jpg",
-		"image2.jpg",
-		"image3.jpg",
-		"image4.jpg"
+		"hangbody1.png", 
+		"hangbody2.png",
+		"hangbody3.png",
+		"hangbody4.png",
+		"hangbody5.png",
+        "hangbody6.png",
+        "hangbody7.png",
 	);
 
 	// Function to get the image file based on attempts
 	function getImageFile($attempts) {
 		global $imageFiles; // Access the $imageFiles array
 		$totalImages = count($imageFiles); // Get the total number of images
-		$imageIndex = $totalImages - $attempts; // Calculate the index of the image
+		$imageIndex = $totalImages - (1 + $attempts); // Calculate the index of the image
 		return $imageFiles[$imageIndex]; // Return the image filename
 	}
 
@@ -38,7 +40,7 @@
 		} else if ($letter != '') { //else (letter already entered) if not blank
 			$_SESSION['warning'] = 'You already submitted \'' . $letter . '\''; //create warning
 		}
-		header("location:formurltest.php"); //redirect to same page with updated variables
+		header("location:corelay.php"); //redirect to same page with updated variables
 		exit;
 	}
 ?>
