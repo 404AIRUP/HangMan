@@ -3,9 +3,9 @@ include 'common.php'; //include functions
 session_start(); //start session to record session vars
 if (isset($_POST['Submit'])) { //check if submit is entered
 	$msg = '';
-	if(empty(str_replace(array("\n", "\t", ' '), '', $_POST["name"]))) {
+	if(empty(str_replace(array("\n", "\t", ' '), '', $_POST["name"]))) { //validate name, check if left blank or only spaces
 		$msg = "Invalid entry in name.";
-	} else {
+	} else { //valid name entered
 		$_SESSION['name'] = $_POST['name'];
 		$_SESSION['rounds'] = 0;
         $_SESSION['score'] = 0; //start score from 0
