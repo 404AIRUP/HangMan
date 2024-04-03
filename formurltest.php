@@ -1,6 +1,10 @@
 <?php
 	include 'common.php'; //include functions
 	session_start(); //start session to get session vars
+	if(!isset($_SESSION['name'])){ 
+	header("location:start.php");
+	exit;
+}
 	if (isset($_POST['Submit'])) { //check if submit ented
 		$letter = $_POST['letter']; //store submission in variable
 		if (!in_array($letter, $_SESSION['letters'])) { //if the new letter isn't in the letters variable i.e. not entered before
@@ -32,7 +36,7 @@
 	<form action="" method="post">
 	<?php
 		if (($_SESSION['attempts'] !=0)&&(in_array('_', $_SESSION['blank']))) { //create submit button if the game is ongoing i.e. user hasn't lost (attempts not 0) or is finished (no blanks left, word filled)
-			print 'Enter a Letter:<input name="letter" type=text" maxlength="1">
+			print 'Enter a Letter:<input name="letter" type=text" maxlength="1" autofocus>
 			<input name="Submit" type="submit" value="Submit">';
 		}
 	?>

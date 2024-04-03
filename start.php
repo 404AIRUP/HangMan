@@ -8,14 +8,14 @@ if (isset($_POST['Submit'])) { //check if submit is entered
 	} else { //valid name entered
 		$_SESSION['name'] = $_POST['name'];
 		$_SESSION['rounds'] = 1;
-        	$_SESSION['score'] = 0; //start score from 0
-        	$_SESSION['difficulty'] = $_POST['diff']; //read difficulty input from form and enter session var
-        	$_SESSION['word_id'] = getWord($_SESSION['difficulty'], rand(0, 9)); //using the set session var difficulty and a random number, get a word from array of respective difficulty words, store as session array var of chars
-        	$_SESSION['blank'] = getBlank($_SESSION['word_id']); //using the array of chars, generate an equally long array of underlines
-        	$_SESSION['attempts'] = 6; //set base attempts of 6
+        $_SESSION['score'] = 0; //start score from 0
+        $_SESSION['difficulty'] = $_POST['diff']; //read difficulty input from form and enter session var
+        $_SESSION['word_id'] = getWord($_SESSION['difficulty'], rand(0, 9)); //using the set session var difficulty and a random number, get a word from array of respective difficulty words, store as session array var of chars
+        $_SESSION['blank'] = getBlank($_SESSION['word_id']); //using the array of chars, generate an equally long array of underlines
+        $_SESSION['attempts'] = 6; //set base attempts of 6
 		$_SESSION['letters'] = array(); //create empty array for letters
-        	header("location:formurltest.php"); //redirect to game after submit
-        	exit;
+        header("location:formurltest.php"); //redirect to game after submit
+        exit;
 	}
 }
 ?>

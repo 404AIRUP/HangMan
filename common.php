@@ -25,4 +25,13 @@
 			echo $val . ' '; //print letter, add a space for clarity, 
 		}
 	}
+	function getMult($diff) {
+		if ($diff == "easy") { //if submitted difficulty var was easy
+			return 1; //return easy score multiplier
+		} else if ($diff == "normal") { //if diff is normal
+			return 2; //return nommal mult
+		} else { //if diff is hard
+			return 3; //return hard mult
+		}
+	}
 ?>
