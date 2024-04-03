@@ -3,8 +3,8 @@
 	session_start(); //start session to get session vars
 	if (isset($_POST['Submit'])) { //check if submit ented
 		$letter = $_POST['letter']; //store submission in variable
-		if (!str_contains($_SESSION['letters'],$letter)) { //if the new letter isn't in the letters variable i.e. not entered before
-			$_SESSION['letters'] .= $letter; //add the letter to the list of letters
+		if (!in_array($letter, $_SESSION['letters'])) { //if the new letter isn't in the letters variable i.e. not entered before
+			$_SESSION['letters'][] = $letter; //add the letter to the list of letters
 			$_SESSION['warning'] = '';//no warning 
 			if (!in_array($letter, $_SESSION['word_id'])) { //if the letter is not in the chosen word
 			$_SESSION['attempts'] -=1; //remove chance
