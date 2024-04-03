@@ -7,7 +7,7 @@ if (isset($_POST['Submit'])) { //check if submit is entered
 		$msg = "Invalid entry in name.";
 	} else { //valid name entered
 		$_SESSION['name'] = $_POST['name'];
-		$_SESSION['rounds'] = 0;
+		$_SESSION['rounds'] = 1;
         	$_SESSION['score'] = 0; //start score from 0
         	$_SESSION['difficulty'] = $_POST['diff']; //read difficulty input from form and enter session var
         	$_SESSION['word_id'] = getWord($_SESSION['difficulty'], rand(0, 9)); //using the set session var difficulty and a random number, get a word from array of respective difficulty words, store as session array var of chars
