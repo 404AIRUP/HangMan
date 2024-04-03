@@ -5,6 +5,7 @@
   $_SESSION['attempts'] = 6; //reset attempts
   $_SESSION['word_id'] = getWord($_SESSION['difficulty'],rand(0,9)); //get a new word
   $_SESSION['blank'] = getBlank($_SESSION['word_id']); //get new blanks
+  $_SESSION['rounds']++; //increment round number
   $_SESSION['warning'] =''; //reset warning
   header("location:formurltest.php"); /*return to page*/
   exit;
