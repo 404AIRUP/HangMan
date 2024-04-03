@@ -40,11 +40,16 @@
 	Difficulty: <?= $_SESSION['difficulty'] ?><br>
 	Word ID: <?= printArray($_SESSION['word_id']); ?><br>
 	Spaces: <?= printArray($_SESSION['blank']); ?><br>
-	Letters: <?= $_SESSION['letters'] ?> <?= $_SESSION['warning'] ?><br>
+	Letters: <?= printArray($_SESSION['letters']); ?> <?= $_SESSION['warning'] ?><br>
 	Attempts: <?= $_SESSION['attempts'] ?><br>
+	Rounds: <?= $_SESSION['rounds'] . "/6" ?><br>
 	<?php
 		if (!in_array('_', $_SESSION['blank'])) { //link to next round if word is done
-			print '<a href="./next.php">Next</a>';
+			if ($_SESSION['rounds'] ==6) {
+				print '<a href="./win.php">Results</a>';
+			} else {
+				print '<a href="./next.php">Next</a>';
+			}
 		}
 	?>
 	<a href="./reset.php">Reset</a>
