@@ -52,7 +52,6 @@ remaining chances, multiplied by the diffculty (easy = 1x, medium = 2x, hard = 3
 added to the score.
 <pre>
 <div class = "scoreboard"><h2>Scoreboard:</h2>
-<?= //insert scoreboard ?>
 </div>
 </body>
 </html>
