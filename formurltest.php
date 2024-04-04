@@ -30,6 +30,7 @@
 ?>
 <html>
 	<head>
+		<title>Hangman Game</title>
 	</head>
 	<body>
 	Test word = <?=$_SESSION['test'] ?>, attempts only decrease if letter isnt in test word <br>
