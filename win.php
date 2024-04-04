@@ -14,7 +14,7 @@ if(!(isset($_SESSION['name'])) || ($_SESSION['rounds'] != 6)){
 	<div class = "wintext">You Won!</div>
 	<div class= "score">Your Score: <?= $_SESSION['score'] ?> </div>
 	<div class = "prev">
-		Previous Users: <?= //insert scoreboard ?>
+		Previous Users:
 	</div>
 	<div class = "back"><a href="./reset.php">Return to Start?</a></div>
 </body>
