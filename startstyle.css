@@ -1,0 +1,80 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.falling-letters {
+    font-size: 24px;
+    margin-left: 15px;
+    margin-right: 15px;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15%; /* 15% left and right padding */
+    transform: translate(-50%, -50%);
+}
+
+.letter {
+    display: inline-block;
+    animation: falling 5s linear;
+}
+
+@keyframes falling {
+    0% {
+        transform: translateY(-100px);
+    }
+    100% {
+        transform: translateY(-50px); /* Adjust for half of the h1 font size */
+    }
+}
+
+.formcont {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.difficulty {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.option-box {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+input[type="radio"] {
+    display: none; /* Hide the actual radio buttons */
+}
+
+label {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.easy {
+    background-color: green;
+    color: white;
+}
+
+.normal {
+    background-color: orange;
+    color: white;
+}
+
+.hard {
+    background-color: red;
+    color: white;
+}

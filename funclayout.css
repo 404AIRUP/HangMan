@@ -55,6 +55,11 @@ form {
     margin-bottom: 20px;
 }
 
+.spaces {
+    font-size: 24px;
+    font-weight: bold;
+}
+
 /* Hangman styles */
 .hangman {
     text-align: center;
