@@ -25,7 +25,60 @@ if (isset($_POST['Submit'])) { //check if submit is entered
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hangman Game</title>
-    <link rel="stylesheet" type="text/css" href="startstyle.css">
+	<style>
+		.introback {
+			opacity: 1;
+			background: white;
+			z-index: 2000;
+			top: 0px;
+			position: absolute;
+			background-color: white;
+			width: 100%;
+			height: 100%;
+			animation-duration: 2s;
+			animation-delay: 3.5s;
+			animation-name: appear;
+			animation-fill-mode: forwards;
+		}
+		
+		.intro {
+			font-size: 50pt;
+			font-family: "Garamond", serif;
+			z-index: 3000;
+			position: absolute;
+			top: 42.5%;
+			left: 37%;
+			animation-duration: 4.5s;
+	animation-delay: 0s;
+	animation-name: introanim;
+	animation-fill-mode: forwards;
+		
+		}
+		@keyframes introanim {
+	0% {
+		opacity: 0;
+		transform: scale(0);
+	}
+	50% {
+		opacity: 1;
+		transform: scale(1);
+	}
+	100% {
+		transform: scale(1.1);
+		opacity: 0;
+		display: none;
+	}
+		}
+	@keyframes appear {
+	0% {
+		opacity: 1;
+	}
+	100% {
+	opacity: 0;
+	display: none;
+	}
+	}
+	</style>
 </head>
 <body>
 <h1>Hangman</h1>
@@ -38,6 +91,8 @@ if (isset($_POST['Submit'])) { //check if submit is entered
 	<input name="Submit" type="submit" value="Start">
 	<a href="./reset.php">Reset</a>
 	</form>
+<div class = "introback"></div>
+<div class = "intro">H A N G M A N</div>
 <h2>How to play:</h2>
 <pre>Hangman is played by guessing letters to fill a blank word until it is filled.
 A random word will be given to the player in the form of blank spaces. The player then
@@ -50,8 +105,9 @@ The player will have to progress through 6 rounds, with the hangman figure and t
 chances being reset at the end of each round and a new word assigned. Additionally, all
 remaining chances, multiplied by the diffculty (easy = 1x, medium = 2x, hard = 3x) will be 
 added to the score.
-<pre>
-<div class = "scoreboard"><h2>Scoreboard:</h2>
+</pre>
+<div class = "scoreboard">
+<h2>Scoreboard:</h2>
 </div>
 </body>
 </html>

@@ -34,4 +34,15 @@
 			return 3; //return hard mult
 		}
 	}
+	function win() { //create elements to display when player wins
+		print '<div class = "textback">
+		<div style="color: gold" class="gametext">YOU WIN</div>
+		</div>';
+	}
+	
+	function lose() { //create elements to display when player loses
+		print '<div class = "textback">
+		<div style="color: red" class="gametext">YOU LOSE</div>
+		</div>';
+	}
 ?>

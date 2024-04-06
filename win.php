@@ -7,7 +7,7 @@ if(!(isset($_SESSION['name'])) || ($_SESSION['rounds'] != 6)){
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Hangman Game<title>
+<title>Hangman Game</title>
 </head>
 <body>
 	<div class = "congrats">Congratulations!</div>
