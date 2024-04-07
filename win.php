@@ -1,5 +1,7 @@
 <?php
+include 'common.php';
 session_start();
+$_SESSION['score'] += ($_SESSION['attempts'] * getMult($_SESSION['difficulty'])); //add remaining attempts to the score * diff multiplier
 if(!($_SESSION['win'])){ 
 	header("location:start.php");
 	exit;
