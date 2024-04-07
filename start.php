@@ -2,17 +2,11 @@
 include 'common.php';
 session_start();
 
-
 if (isset($_POST['Submit'])) { // Check if submit is entered
     if (empty(str_replace(array("\n", "\t", ' '), '', $_POST["name"]))) { // Validate name, check if left blank or only spaces
         $msg = "Invalid entry in name.";
     } else { // Valid name entered
         $_SESSION['name'] = $_POST['name'];
-        $_SESSION['userName'] = $_POST['name'];
-
-        // Add the user's name to the previous users array
-        $_SESSION['previousUsers'][] = $_POST['name'];
-
         $_SESSION['rounds'] = 1;
         $_SESSION['score'] = 0; // Start score from 0
         $_SESSION['difficulty'] = $_POST['diff']; // Read difficulty input from form and enter session var
