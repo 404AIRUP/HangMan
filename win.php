@@ -1,5 +1,6 @@
 <?php
-if(!(isset($_SESSION['name'])) || ($_SESSION['rounds'] != 6)){ 
+session_start();
+if(!($_SESSION['win'])){ 
 	header("location:start.php");
 	exit;
 }

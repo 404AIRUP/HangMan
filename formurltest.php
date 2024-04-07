@@ -108,6 +108,7 @@ animation-duration: 5s;
 		if (!in_array('_', $_SESSION['blank'])) { //link to next round if word is done, announce win
 			win();
 			if ($_SESSION['rounds'] ==6) {
+				$_SESSION['win'] = true;
 				print '<a href="./win.php">Results</a>';
 			} else {
 				print '<a href="./next.php">Next</a>';
