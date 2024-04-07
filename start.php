@@ -31,6 +31,7 @@ if (isset($_POST['Submit'])) { // Check if submit is entered
     }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,6 +39,7 @@ if (isset($_POST['Submit'])) { // Check if submit is entered
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hangman Game</title>
     <style>
+
         .introback {
             opacity: 1;
             background: white;
@@ -123,16 +125,18 @@ if (isset($_POST['Submit'])) { // Check if submit is entered
     added to the score.
     </pre>
     <div class="scoreboard">
-    <h2><a href="sname.html">Scoreboard</a>:</h2>
-    <!-- I MADE THE SCOREBOARD A LINK TO THE sname.html -->
-</div>
-
+        <h2>Scoreboard:</h2>
         <?php
-        // Iterate over the previous users array and display each user's name and score
-        foreach ($_SESSION['previousUsers'] as $user) {
-            echo "<p>User: $user</p>";
-        }
+        // Read and display previous users and their scores from the sname.html file
+        $previousScores = file_get_contents('sname.html');
+        echo $previousScores;
         ?>
     </div>
+    <?php
+    // Iterate over the previous users array and display each user's name
+    foreach ($_SESSION['previousUsers'] as $user) {
+        echo "<p>User: $user</p>";
+    }
+    ?>
 </body>
 </html>
