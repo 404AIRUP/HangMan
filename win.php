@@ -9,7 +9,7 @@ if (!$_SESSION['win']) {
 }
 
 // Append user's name and score to a file
-$scoreData = $_SESSION['name'] . ';' . $_SESSION['score'] . PHP_EOL; // PHP_EOL represents the end-of-line character
+$scoreData = $_SESSION['name'] . ' ; ' . $_SESSION['score'] . PHP_EOL; // PHP_EOL represents the end-of-line character
 file_put_contents('sname.html', $scoreData, FILE_APPEND);
 
 // Read and display previous users and their scores. I SAVED THIS in sname.html
@@ -27,7 +27,7 @@ $previousScores = file_get_contents('sname.html');
     <div class="score">Your Score: <?= $_SESSION['score'] ?> </div>
     <div class="previous-scores">
         <h2>Previous Scores:</h2>
-        <?php echo $previousScores; ?>
+        <?php print "<pre>{$previousScores}</pre>"; ?>
     </div>
     <div class="back"><a href="./reset.php">Return to Start?</a></div>
 </body>

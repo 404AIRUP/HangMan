@@ -2,6 +2,7 @@
 include 'common.php';
 session_start();
 
+
 if (isset($_POST['Submit'])) { // Check if submit is entered
     if (empty(str_replace(array("\n", "\t", ' '), '', $_POST["name"]))) { // Validate name, check if left blank or only spaces
         $msg = "Invalid entry in name.";
@@ -114,8 +115,8 @@ added to the score.
     <h2>Scoreboard</h2>
 	<?php
         // Read and display previous users and their scores from the sname.html file
-        $previousScores = file_get_contents('sname.html');
-        echo $previousScores;
+        $previousScores = file_get_contents('./sname.html');
+        print "<pre>{$previousScores}</pre>";
         ?>
 	</div>
 
