@@ -7,6 +7,6 @@
   $_SESSION['blank'] = getBlank($_SESSION['word_id']); //get new blanks
   $_SESSION['rounds']++; //increment round number
   $_SESSION['warning'] =''; //reset warning
-  header("location:formurltest.php"); /*return to page*/
+  header("location:corelay.php"); /*return to page*/
   exit;
 ?>
